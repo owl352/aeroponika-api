@@ -3,7 +3,8 @@
   "module": "src/index.ts",
   "type": "module",
   "scripts": {
-    "start": "bun run src/index.ts"
+    "start": "bun run src/index.ts",
+    "serve": "bun pm2 start --interpreter ~/.bun/bin/bun src/index.ts --cron-restart=\"0 19 * * *\""
   },
   "devDependencies": {
     "bun-types": "latest"
