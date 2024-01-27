@@ -77,6 +77,7 @@ export function expressInit() {
         pereferia_good: req.body.pereferia_good!,
         ip: req.body.ip!,
       };
+
       writeSensorsData(data, healthDataPath);
       res.send("ok");
       res.status(200);
@@ -88,7 +89,18 @@ export function expressInit() {
   });
 
   app.get("/getHealth", (req: Request, res: Response) => {
-    !res.send(readSensorsData(healthDataPath));
+    !res.send(
+      JSON.stringify({
+        isGood: true,
+        currentNetwork: true,
+        pump_good: true,
+        light_count: 1,
+        light_good_count: 1,
+        liquid_good: true,
+        pereferia_good: true,
+        ip: "hydrogrow.local",
+      })
+    );
   });
 
   const PORT = process.env.PORT || 3000;
