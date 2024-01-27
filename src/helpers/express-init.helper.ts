@@ -51,7 +51,7 @@ export function expressInit() {
         light_good: req.body.light_good!,
         liquid_good: req.body.liquid_good!,
       };
-      writeSensorsData(data,mainInfoDataPath);
+      writeSensorsData(data, mainInfoDataPath);
       res.send("ok");
       res.status(200);
     } catch (error) {
@@ -62,7 +62,7 @@ export function expressInit() {
   });
 
   app.get("/getMainInfo", (req: Request, res: Response) => {
-    ! res.send(readSensorsData(mainInfoDataPath));
+    !res.send(readSensorsData(mainInfoDataPath));
   });
 
   app.post("/saveHealth", (req: Request, res: Response) => {
@@ -72,12 +72,12 @@ export function expressInit() {
         currentNetwork: req.body.currentNetwork!,
         pump_good: req.body.pump_good!,
         light_count: req.body.light_count!,
-        light_good: req.body.light_good!,
+        light_good_count: req.body.light_good!,
         liquid_good: req.body.liquid_good!,
         pereferia_good: req.body.pereferia_good!,
         ip: req.body.ip!,
       };
-      writeSensorsData(data,healthDataPath);
+      writeSensorsData(data, healthDataPath);
       res.send("ok");
       res.status(200);
     } catch (error) {
@@ -88,7 +88,7 @@ export function expressInit() {
   });
 
   app.get("/getHealth", (req: Request, res: Response) => {
-    ! res.send(readSensorsData(healthDataPath));
+    !res.send(readSensorsData(healthDataPath));
   });
 
   const PORT = process.env.PORT || 3000;
